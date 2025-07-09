@@ -14,14 +14,19 @@ class Node
 */
 
 class Solution {
-    
-    
-    // Function to return sum of all nodes of a binary tree
+//   void helper(Node root,int sum){
+//       if(root==null) return;
+//       sum=sum+root.data;
+//       helper(root.left,sum);
+//       helper(root.right,sum);
+//   }
     static int sumBT(Node root) {
         // Your code here
-        if(root==null) return 0;
-        return root.data+sumBT(root.left)+sumBT(root.right);
-        
+    // int sum=0;
+    // Solution().helper(root,sum);
+    // return sum;
+     if(root==null) return 0;
        
+      return root.data+ sumBT(root.left)+ sumBT(root.right);
 }
 }

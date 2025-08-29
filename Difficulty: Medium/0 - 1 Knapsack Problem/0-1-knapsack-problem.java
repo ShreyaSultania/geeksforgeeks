@@ -1,33 +1,21 @@
 class Solution {
-    public static int profit(int i,int W,int[]val,int[]wt,int [][]dp){
-        if(i>=val.length) return 0;
-        if(dp[i][W]!=-1) return dp[i][W];
-        int skip=profit(i+1,W,val,wt,dp);
-        if(wt[i]>W) return dp[i][W]=skip;
-        int take=val[i]+profit(i+1,W-wt[i],val,wt,dp);
-        return dp[i][W]=Math.max(skip,take);
+    static int helper(int C,int val[],int wt[],int idx,int dp[][]){
+        if(idx>=wt.length) return 0;
+        if(dp[C][idx]!=-1) return dp[C][idx];
+        int skip=helper(C,val,wt,idx+1,dp);
+        if(wt[idx]>C) return dp[C][idx]=skip;
+        int take=val[idx]+helper(C-wt[idx],val,wt,idx+1,dp);
+        return dp[C][idx]=Math.max(take,skip);
     }
-    static int knapsack(int W, int val[], int wt[]) {
-        int dp[][]=new int[wt.length][W+1];
-        for(int[]row:dp){
-            Arrays.fill(row,-1);
+    static int knapsack(int C, int val[], int wt[]) {
+        // memoisation
+        int n=wt.length;
+        int dp[][]=new int[C+1][n+1]; //depends on how many variables are going to change and which variable
+        for(int i=0;i<dp.length;i++){
+            for(int j=0;j<dp[0].length;j++){
+                dp[i][j]=-1;
+            }
         }
-      
-        return profit(0,W,val,wt,dp);
-        // code here
-        // int m=W;
-        // int n=wt.length;
-        // int dp[][]=new int[n+1][m+1];
-        // for(int i=1;i<=n;i++){
-        //     for(int j=1;j<=m;j++){
-        //         if(wt[i-1]>j){
-        //             dp[i][j]=dp[i-1][j];
-        //         }
-        //         else{
-        //             dp[i][j]=Math.max(dp[i-1][j],val[i-1]+dp[i-1][j-wt[i-1]]);
-        //         }
-        //     }
-        // }
-        // return dp[n][m];
+        return helper(C,val,wt,0,dp);
     }
 }

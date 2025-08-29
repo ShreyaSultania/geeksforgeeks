@@ -10,7 +10,7 @@ class Solution {
     static int knapsack(int C, int val[], int wt[]) {
         // memoisation
         int n=wt.length;
-        int dp[][]=new int[C+1][n+1]; //depends on how many variables are going to change and which variable
+        int dp[][]=new int[C+1][n]; //depends on how many variables are going to change and which variable
         for(int i=0;i<dp.length;i++){
             for(int j=0;j<dp[0].length;j++){
                 dp[i][j]=-1;

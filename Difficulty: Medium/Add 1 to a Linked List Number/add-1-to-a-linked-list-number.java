@@ -11,9 +11,9 @@ class Node{
 */
 
 class Solution {
-    Node reverse(Node head){
+    public Node Reverse(Node head){
+         Node prev=null;
         Node curr=head;
-        Node prev=null;
         Node Next=null;
         while(curr!=null){
             Next=curr.next;
@@ -24,25 +24,23 @@ class Solution {
         return prev;
     }
     public Node addOne(Node head) {
-       
         // code here.
-     Node dummy=new Node(0);
-     Node ans=dummy;
-      Node a= reverse(head);
-      int carry=1;
-      while(a!=null || carry>0){
-      int sum=carry;
-      if(a!=null) {sum+=a.data;
-      a=a.next;
-      }
-      Node p=new Node(sum%10);
-      
-      ans.next=p;
-      ans=ans.next;
-      carry=sum/10;
-        
-    }
-    Node rev=reverse(dummy.next);
-    return rev;
+        Node temp=Reverse(head);
+        Node dummy=new Node(0);
+        Node t=dummy;
+        int carry=1;
+        while(temp!=null){
+            Node a=new Node((temp.data+carry)%10);
+            t.next=a;
+            t=t.next;
+            carry=(temp.data+carry)/10;
+            temp=temp.next;
+        }
+        if(carry>0) {
+        Node a=new Node((carry)%10);
+            t.next=a;
+            t=t.next;
+        }
+        return Reverse(dummy.next);
     }
 }

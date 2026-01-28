@@ -1,17 +1,19 @@
 class Solution {
     static ArrayList<Integer> nextSmallerEle(int[] arr) {
         // code here
-        int n=arr.length;
         ArrayList<Integer>ans=new ArrayList<>();
-        Stack<Integer>st=new Stack<>();
+        int n=arr.length;
         for(int i=0;i<n;i++){
             ans.add(0);
         }
-        ans.set(n-1,-1);
+        Stack<Integer>st=new Stack<>();
         st.push(arr[n-1]);
+        ans.set(n-1,-1);
         for(int i=n-2;i>=0;i--){
-            while(st.size()>0 && st.peek()>=arr[i]) st.pop();
-            if(st.size()==0) ans.set(i,-1);
+            while(st.size()>0 && arr[i]<=st.peek()) st.pop();
+            if(st.size()==0){
+                ans.set(i,-1);
+            }
             else{
                 ans.set(i,st.peek());
             }

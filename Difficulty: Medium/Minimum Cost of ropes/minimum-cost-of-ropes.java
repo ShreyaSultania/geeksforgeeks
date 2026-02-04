@@ -1,17 +1,19 @@
 class Solution {
     public static int minCost(int[] arr) {
         // code here
-        int cost=0;
-     PriorityQueue<Integer>q=new PriorityQueue<>();
+        PriorityQueue<Integer>pq=new PriorityQueue<>();
         for(int i=0;i<arr.length;i++){
-            q.add(arr[i]);
+            pq.add(arr[i]);
         }
-        if(q.size()==1) return 0;
-        while(q.size()>1){
-           int a=q.poll();
-           int b=q.poll();
-            cost+=(a+b);
-            q.add(a+b);
+        int cost=0;
+        while(pq.size()>1){
+            int a=pq.peek();
+            pq.remove();
+            int b=pq.peek();
+            pq.remove();
+            int c=a+b;
+            cost+=c;
+            pq.add(c);
         }
         return cost;
     }

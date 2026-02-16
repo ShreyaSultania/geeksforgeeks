@@ -1,6 +1,6 @@
 class Solution {
     void helper(int n,String temp,ArrayList<String>ans){
-        // if()
+        if(ans.size()==Math.pow(2,n)) return;
         if(temp.length()==n){
             ans.add(temp);
             return;

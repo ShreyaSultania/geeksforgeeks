@@ -1,18 +1,33 @@
+/*
+class Node{
+    int data;
+    Node left,right;
 
+    Node(int key)
+    {
+        data = key;
+        left = right = null;
+    }
+}
+*/
 class Solution {
- 
-    public int isSumProperty(Node root) {
-        if(root==null || (root.left==null && root.right==null)) return 1;
-      int left=root.left==null?0:root.left.data;
-      int right=root.right==null?0:root.right.data;
-      if(root.data!=left+right){
-          return 0;
-      }
-      
-        int l=isSumProperty(root.left);
-         int r=isSumProperty(root.right);
-         if(l==1 && r==1) return 1;
-         else return 0;
-           
+    boolean helper(Node root){
+        if(root==null) return true;
+        if(root.left==null && root.right==null) return true;
+            int a=0;
+            int b=0;
+            if(root.left!=null){
+                a=root.left.data;
+            }
+            if(root.right!=null){
+                b=root.right.data;
+           }
+           if(a+b!=root.data) return false;
+        
+        return helper(root.left) && helper(root.right);
+    }
+    public boolean isSumProperty(Node root) {
+        //  code here
+        return helper(root);
     }
 }

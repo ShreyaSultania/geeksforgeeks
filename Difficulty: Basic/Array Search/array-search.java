@@ -1,13 +1,10 @@
 class Solution {
-    public int search(int nums[], int x) {
+    public int search(int arr[], int x) {
         // code here
-        int idx=-1;
-    for(int i=0;i<nums.length;i++){
-      if(nums[i]==x){
-        idx=i;
-        return idx;
-      }
-    }
-    return idx;
+        int n=arr.length;
+        for(int i=0;i<n;i++){
+            if(arr[i]==x) return i;
+        }
+        return -1;
     }
 }

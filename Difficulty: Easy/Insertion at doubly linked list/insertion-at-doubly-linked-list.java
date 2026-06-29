@@ -15,25 +15,15 @@ class Node
 class Solution {
     Node insertAtPos(Node head, int p, int x) {
         // code here
-        Node val=new Node(x);
         Node temp=head;
-        int c=0;
-        while(temp!=null && c<p){
-            c++;
+        Node t=new Node(x);
+        for(int i=0;i<p;i++){
             temp=temp.next;
         }
-        if(temp!=null){
-           val.next=temp.next;
-           temp.next=val;
-           val.prev=temp;
-           if(temp.next!=null){
-            temp.next=val;
-            val.prev=temp;
-        }
-        temp=temp.next;
-        
-        }
+        t.next=temp.next;
+        if(temp.next!=null) temp.next.prev=t;
+        temp.next=t;
+        t.prev=temp;
         return head;
-        
     }
 }

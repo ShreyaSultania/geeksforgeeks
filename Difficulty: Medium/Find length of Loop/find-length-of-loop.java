@@ -13,20 +13,19 @@ class Node {
 class Solution {
     public int lengthOfLoop(Node head) {
         // code here
-        int c=0;
         Node slow=head;
         Node fast=head;
+        int c=0;
         while(fast!=null && fast.next!=null){
-            fast=fast.next.next;
             slow=slow.next;
+            fast=fast.next.next;
             if(slow==fast){
                 slow=slow.next;
-                c=1;
-              while(slow!=fast){
-                  slow=slow.next;
+                while(slow!=fast){
                     c++;
-              }
-              return c;
+                    slow=slow.next;
+                }
+                return c+1;
             }
         }
         return 0;

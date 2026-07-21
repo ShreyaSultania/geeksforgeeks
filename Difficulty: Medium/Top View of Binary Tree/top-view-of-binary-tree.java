@@ -11,37 +11,35 @@ class Node {
 }
 */
 class Pair{
+    Node node;
     int idx;
-    Node val;
-    Pair(Node val,int idx){
-        this.val=val;
+    Pair(Node node,int idx){
+        this.node=node;
         this.idx=idx;
     }
 }
 class Solution {
-    ArrayList<Integer>ans;
-    void bfs(Node root){
-        TreeMap<Integer,Node>map=new TreeMap<>();
+    public ArrayList<Integer> topView(Node root) {
+        // code here
+        ArrayList<Integer>ans=new ArrayList<>();
+        TreeMap<Integer,Integer>map=new TreeMap<>();
         Queue<Pair>q=new LinkedList<>();
         q.add(new Pair(root,0));
         while(q.size()>0){
-            Pair p=q.poll();
-            if(!map.containsKey(p.idx)) map.put(p.idx,p.val);
-            if(p.val.left!=null){
-                q.add(new Pair(p.val.left,p.idx-1));
+            Pair p=q.remove();
+            if(!map.containsKey(p.idx)){
+                map.put(p.idx,p.node.data);
             }
-            if(p.val.right!=null){
-                q.add(new Pair(p.val.right,p.idx+1));
+            if(p.node.left!=null){
+                q.add(new Pair(p.node.left,p.idx-1));
+            }
+            if(p.node.right!=null){
+                q.add(new Pair(p.node.right,p.idx+1));
             }
         }
-        for(int ele:map.keySet()){
-            ans.add(map.get(ele).data);
+        for(int idx:map.keySet()){
+            ans.add(map.get(idx));
         }
-    }
-    public ArrayList<Integer> topView(Node root) {
-        // code here
-        ans=new ArrayList<>();
-        bfs(root);
         return ans;
     }
 }

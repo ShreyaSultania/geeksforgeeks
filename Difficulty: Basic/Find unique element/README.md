@@ -1,0 +1,9 @@
+<h2><a href="https://www.geeksforgeeks.org/problems/find-unique-element2632/1">Find unique element</a></h2><h3>Difficulty Level : Difficulty: Basic</h3><hr><div class="problems_problem_content__Xm_eO" style="--text-color: var(--problem-text-color);"><p><span style="font-family: arial, helvetica, sans-serif; font-size: 14pt;">Given an array <strong>arr</strong>[] and an integer <strong>k</strong>. Every element in the array appears a number of times that is a multiple of k, except for one element whose frequency is not a multiple of k. Find and return that unique element.</span></p>
+<p><span style="font-size: 14pt;"><span style="font-family: arial,helvetica,sans-serif;"><strong>Examples:</strong></span></span></p>
+<pre><span style="font-size: 14pt;"><span style="font-family: arial,helvetica,sans-serif;"><strong>Input: </strong>arr[] = [6, 2, 5, 2, 2, 6, 6],<strong> </strong>k = 3
+<strong>Output: </strong>5
+<strong>Explanation: </strong>Every element appears 3 times except 5.</span></span></pre>
+<pre><span style="font-size: 14pt;"><span style="font-family: arial,helvetica,sans-serif;"><strong>Input: </strong>arr[] = [2, 2, 2, 10, 2], k = 4
+<strong>Output: </strong>10
+<strong>Explanation: </strong>Every element appears 4 times except 10.</span></span></pre>
+<p><span style="font-size: 14pt;"><span style="font-family: arial,helvetica,sans-serif;"><strong>Constraints:</strong><br>3 ≤ |arr| ≤ 2*10<sup>5</sup><br>2 ≤&nbsp; k ≤ 2*10<sup>5</sup><br>1 ≤ arr[i] ≤ 10<sup>9</sup></span></span></p></div><br><p><span style=font-size:18px><strong>Topic Tags : </strong><br><code>Arrays</code>&nbsp;<code>Hash</code>&nbsp;<code>Bit Magic</code>&nbsp;

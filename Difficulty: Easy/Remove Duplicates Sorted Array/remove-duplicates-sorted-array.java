@@ -1,21 +1,20 @@
 class Solution {
-    // Function to remove duplicates from the given array.
-    ArrayList<Integer> removeDuplicates(int[] nums) {
+    ArrayList<Integer> removeDuplicates(int[] arr) {
         // code here
-         int i=0;
-        int j=i+1;
-        int n=nums.length;
+        int n=arr.length;
+        ArrayList<Integer>ans=new ArrayList<>();
+        int i=0;
+        int j=1;
         while(j<n){
-            if(nums[i]==nums[j]) j++;
-            else{
-                nums[i+1]=nums[j];
-                i++;
+            if(arr[i]!=arr[j]){
+                arr[++i]=arr[j];
             }
+            j++;
         }
-        ArrayList<Integer>num=new ArrayList<>();
-        for(int k=0;k<i+1;k++){
-            num.add(nums[k]);
+        for(int k=0;k<=i;k++){
+            ans.add(arr[k]);
+        //   System.out.print(arr[k]);
         }
-        return num;
+        return ans;
     }
 }

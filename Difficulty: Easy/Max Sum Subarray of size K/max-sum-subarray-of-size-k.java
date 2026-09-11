@@ -5,16 +5,16 @@ class Solution {
         int j=0;
         int n=arr.length;
         int sum=0;
-        int maxSum=0;
+        int max=0;
         while(j<n){
-            sum+=arr[j];
-            if(j-i>=k){
+            if(j-i+1>k){
                 sum-=arr[i];
                 i++;
             }
-            maxSum=Math.max(maxSum,sum);
+            sum+=arr[j];
+            max=Math.max(sum,max);
             j++;
         }
-        return maxSum;
+        return max;
     }
 }
